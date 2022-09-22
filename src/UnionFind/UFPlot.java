@@ -38,8 +38,10 @@ public class UFPlot {
 			        StdDraw.point(UfEntity.getI() + 10, UfEntity.getCost() + 10);
 			        StdDraw.setPenColor(StdDraw.GREEN);	
 				}
-		        StdDraw.point(UfEntity.getI() + 10, (double) UfEntity.getTotal()/UfEntity.getI() + 10);
-		        System.out.println(UfEntity.getI() + "," + UfEntity.getCost() + ","+ UfEntity.getTotal()/UfEntity.getI());
+		        StdDraw.point(UfEntity.getI() + 10, (double) UfEntity.getTotal()
+		        		/UfEntity.getI() + 10);
+		        System.out.println(UfEntity.getI() + "," + 
+		        		UfEntity.getCost() + ","+ UfEntity.getTotal()/UfEntity.getI());
 			}
 		}
 		catch (ClassCastException e) {
