@@ -7,9 +7,9 @@ public class QuickFindUF implements UFind{
 	public Color color = StdDraw.BLUE;
 	private int cost;
 	private int total;
-	private int i;
-	private int[] id;  
-	private int count;     // number of components
+	private int i;		// i-th input step
+	private int[] id;
+	private int count;	// number of components
 
     /**
      * Initializes an empty union-find data structure with

@@ -30,7 +30,7 @@ public class UFPlot {
 		UFind UfEntity;
 		plot.printGraph();
 		try {
-			UfEntity = plot.uf.get(0);
+			UfEntity = plot.uf.get(0);  // algorithm select 
 		}
 		catch (ClassCastException e) {
 			throw new ClassCastException("UFind: Inappropriate cast to specific type");
@@ -50,11 +50,11 @@ public class UFPlot {
 			if (!UfEntity.connected(p, q)) { 
 				UfEntity.union(p, q);
 				StdDraw.setPenColor(UfEntity.getColor());
-		        StdDraw.point(UfEntity.getI() + 10, UfEntity.getCost() + 10);
+		        StdDraw.point(UfEntity.getI() + 10, UfEntity.getCost() + 10);  // number of array accesses
 			}
 	        StdDraw.setPenColor(StdDraw.GREEN);	
 			StdDraw.point(UfEntity.getI() + 10, 
-	        		(double) UfEntity.getTotal()/UfEntity.getI() + 10);
+	        		(double) UfEntity.getTotal()/UfEntity.getI() + 10);   // average number of array accesses 
 	        //System.out.println(UfEntity.getI() + "," + 
 	        		//UfEntity.getCost() + ","+ UfEntity.getTotal()/UfEntity.getI());
 		}
