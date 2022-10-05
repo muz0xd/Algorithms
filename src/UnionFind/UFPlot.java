@@ -2,6 +2,7 @@ package UnionFind;
 
 import edu.princeton.cs.algs4.StdIn;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.ArrayList;
 import edu.princeton.cs.algs4.StdDraw;
 
@@ -20,36 +21,42 @@ public class UFPlot {
 		StdDraw.setScale(0, 1300);
 		StdDraw.line(10, 10, 10, 1200);
 		StdDraw.line(10, 10, 1200, 10);
-        StdDraw.setPenRadius(0.005);
+		StdDraw.setPenRadius(0.005);
 	}
 
 	public static void main(String[] args) {
 		int n = StdIn.readInt();
 		UFPlot plot = new UFPlot(n);
+		UFind UfEntity;
 		plot.printGraph();
 		try {
-			UFind UfEntity = plot.uf.get(0);
-			while (!StdIn.isEmpty()) {
-				int p = StdIn.readInt();
-				int q = StdIn.readInt();
-				if (!UfEntity.connected(p, q)) { 
-					UfEntity.union(p, q);
-					StdDraw.setPenColor(UfEntity.getColor());
-			        StdDraw.point(UfEntity.getI() + 10, UfEntity.getCost() + 10);
-			        StdDraw.setPenColor(StdDraw.GREEN);	
-				}
-		        StdDraw.point(UfEntity.getI() + 10, (double) UfEntity.getTotal()
-		        		/UfEntity.getI() + 10);
-		        System.out.println(UfEntity.getI() + "," + 
-		        		UfEntity.getCost() + ","+ UfEntity.getTotal()/UfEntity.getI());
-			}
+			UfEntity = plot.uf.get(0);
 		}
 		catch (ClassCastException e) {
 			throw new ClassCastException("UFind: Inappropriate cast to specific type");
 		}
 		catch (IndexOutOfBoundsException e) {
-			e.printStackTrace();
-			throw new IndexOutOfBoundsException("No such elements in algorithm list");
+			throw new IndexOutOfBoundsException("no such index in algorithm list");
+		}
+		while (!StdIn.isEmpty()) {
+			int p, q;
+			try {
+				p = StdIn.readInt();
+				q = StdIn.readInt();
+			}
+			catch (NoSuchElementException e) {
+				throw new NoSuchElementException("Mo more int elements are avialable");
+			}
+			if (!UfEntity.connected(p, q)) { 
+				UfEntity.union(p, q);
+				StdDraw.setPenColor(UfEntity.getColor());
+		        StdDraw.point(UfEntity.getI() + 10, UfEntity.getCost() + 10);
+			}
+	        StdDraw.setPenColor(StdDraw.GREEN);	
+			StdDraw.point(UfEntity.getI() + 10, 
+	        		(double) UfEntity.getTotal()/UfEntity.getI() + 10);
+	        //System.out.println(UfEntity.getI() + "," + 
+	        		//UfEntity.getCost() + ","+ UfEntity.getTotal()/UfEntity.getI());
 		}
 	}
 }
