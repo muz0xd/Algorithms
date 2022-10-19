@@ -38,7 +38,7 @@ public class UFPlot {
 	  }
 	  catch (IndexOutOfBoundsException e) {
 	    throw new IndexOutOfBoundsException("no such index in algorithm list");
-		}
+	  }
 	  
 	  while (!StdIn.isEmpty()) {
 	    int p, q;
