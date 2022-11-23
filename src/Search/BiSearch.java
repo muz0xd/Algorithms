@@ -7,8 +7,8 @@ public class BiSearch {
 		int hi = a.length - 1;
 		while (hi >= lo) {
 			int mid = (lo + hi) / 2;
-			if (key == a[mid]) return mid;
-			if (key > a[mid]) lo = mid + 1;
+			if (key == a[mid]) return mid;   // key found!
+			if (key > a[mid]) lo = mid + 1;  // key isn't in the middle of array, that's why it's in high or low part of array respectively.  
 			else hi = mid - 1;
 		}
 		return -1;
