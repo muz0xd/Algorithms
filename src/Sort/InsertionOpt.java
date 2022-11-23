@@ -4,6 +4,11 @@ import java.lang.Comparable;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
 
+// Despite of original insertion algorithm, this one doesn't exchange 
+// elements on each compare operation but insert current element at
+// the position of finite bigger element. 
+// Each element between these shift by one position right.
+
 public class InsertionOpt {
     
     public static <T extends Comparable<T>>  void sort (T[] a) {
