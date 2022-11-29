@@ -8,7 +8,7 @@ public class Insertion {
     
     public static <T extends Comparable<T>>  void sort (T[] a) {
         int N = a.length;
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < N; i++) { // Insert a[i] aming a[i-1], a[i-2], a[i-3].. .
             for (int j = i; j > 0 && less(a[j], a[j-1]); j--) {
                 exch(a, j, j-1);
             }
