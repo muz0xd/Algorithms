@@ -14,6 +14,7 @@ public class SortCompare {
         return timer.elapsedTime();
     }
     
+    @SuppressWarnings("deprecation")
     public static double timeRandomInput(String alg, int N, int T) {
         // Use alg to sort T random array of length N
         double total = 0.0;
