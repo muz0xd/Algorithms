@@ -50,15 +50,15 @@ _asm_main:
     leave                     
     ret
 
-  _fibb:
+_fibb:
     enter 4,0
-	  mov eax, [ebp+8]
-  	cmp eax, 0
-	  je term1_cond
-	  cmp eax, 1
-  	je term2_cond
-	  dec eax
-	  push eax
+    mov eax, [ebp+8]
+    cmp eax, 0
+    je term1_cond
+    cmp eax, 1
+    je term2_cond
+    dec eax
+    push eax
     call _fibb
     add esp, 4
     mov dword [ebp-4], eax
@@ -73,13 +73,13 @@ _asm_main:
     add eax, dword [ebp-4]
 	
     jmp short end_fibb
-    term1_cond:
-      mov eax, 0
-      jmp end_fibb
-    term2_cond:
-      mov eax, 1
-      jmp end_fibb
-    end_fibb:
-      leave
-      ret
+term1_cond:
+    mov eax, 0
+    jmp end_fibb
+term2_cond:
+    mov eax, 1
+    jmp end_fibb
+end_fibb:
+    leave
+    ret
     
